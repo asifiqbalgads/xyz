@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Case Study – Toronto Electrical Contractor | Google Ads</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #111111;
+    --dark: #1e1e1e;
+    --mid: #555;
+    --light: #f5f5f3;
+    --border: #e0e0dc;
+    --accent: #1a6b3c;
+    --accent-light: #e8f5ee;
+    --red: #c0392b;
+    --red-light: #fdf0ee;
+    --gold: #b8860b;
+    --gold-light: #fdf8ed;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #fafaf8;
+    color: var(--black);
+    line-height: 1.65;
+    font-size: 15px;
+  }
+
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 60px 32px 100px;
+  }
+
+  /* Header */
+  .tag {
+    display: inline-block;
+    background: var(--black);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 2px;
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(26px, 4vw, 38px);
+    line-height: 1.2;
+    color: var(--black);
+    margin-bottom: 18px;
+    max-width: 640px;
+  }
+
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 24px;
+    font-size: 13px;
+    color: var(--mid);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 0;
+    margin-bottom: 40px;
+  }
+
+  .meta span strong { color: var(--black); font-weight: 600; }
+
+  /* Section titles */
+  h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    color: var(--black);
+    margin-bottom: 14px;
+    margin-top: 48px;
+  }
+
+  h3 {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--mid);
+    margin-bottom: 10px;
+    margin-top: 28px;
+  }
+
+  p { margin-bottom: 12px; color: #333; }
+
+  /* KPI cards */
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 12px;
+    margin: 20px 0 32px;
+  }
+
+  .kpi {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px 18px;
+  }
+
+  .kpi .label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--mid);
+    margin-bottom: 6px;
+  }
+
+  .kpi .value {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--black);
+    line-height: 1.1;
+  }
+
+  .kpi .sub {
+    font-size: 11px;
+    color: var(--mid);
+    margin-top: 4px;
+  }
+
+  /* Before/After table */
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0 32px;
+    font-size: 14px;
+  }
+
+  .compare-table th {
+    text-align: left;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--mid);
+    padding: 10px 14px;
+    border-bottom: 2px solid var(--border);
+    background: #fff;
+  }
+
+  .compare-table td {
+    padding: 11px 14px;
+    border-bottom: 1px solid var(--border);
+    background: #fff;
+  }
+
+  .compare-table tr:last-child td { border-bottom: none; }
+  .compare-table td:first-child { font-weight: 500; color: var(--black); }
+
+  .before { color: var(--red); font-weight: 600; }
+  .after { color: var(--accent); font-weight: 600; }
+
+  .change-good {
+    font-size: 12px;
+    background: var(--accent-light);
+    color: var(--accent);
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  /* Bullet lists */
+  ul.dots {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 20px;
+  }
+
+  ul.dots li {
+    padding: 7px 0 7px 20px;
+    position: relative;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+    color: #333;
+  }
+
+  ul.dots li:last-child { border-bottom: none; }
+
+  ul.dots li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--mid);
+    font-size: 12px;
+    top: 8px;
+  }
+
+  /* Two columns for mistakes + fixes */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 16px 0 32px;
+  }
+
+  @media (max-width: 560px) {
+    .two-col { grid-template-columns: 1fr; }
+  }
+
+  .card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+  }
+
+  .card.red { border-top: 3px solid var(--red); }
+  .card.green { border-top: 3px solid var(--accent); }
+
+  .card .card-title {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+  }
+
+  .card.red .card-title { color: var(--red); }
+  .card.green .card-title { color: var(--accent); }
+
+  .card ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .card ul li {
+    font-size: 13px;
+    color: #333;
+    padding: 5px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    line-height: 1.4;
+  }
+
+  .card ul li:last-child { border-bottom: none; }
+  .card ul li::before { flex-shrink: 0; margin-top: 2px; }
+  .card.red ul li::before { content: '✗'; color: var(--red); font-weight: 700; }
+  .card.green ul li::before { content: '✓'; color: var(--accent); font-weight: 700; }
+
+  /* Screenshot note */
+  .screenshot-note {
+    background: var(--light);
+    border: 1px dashed #ccc;
+    border-radius: 6px;
+    padding: 14px 18px;
+    font-size: 13px;
+    color: var(--mid);
+    margin: 20px 0 32px;
+    text-align: center;
+  }
+
+  /* Takeaway block */
+  .takeaway {
+    background: var(--black);
+    color: #fff;
+    border-radius: 10px;
+    padding: 28px 32px;
+    margin-top: 48px;
+  }
+
+  .takeaway h2 {
+    color: #fff;
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 16px;
+  }
+
+  .takeaway ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .takeaway ul li {
+    font-size: 14px;
+    padding: 7px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-left: 20px;
+    position: relative;
+    color: #ddd;
+  }
+
+  .takeaway ul li:last-child { border-bottom: none; }
+  .takeaway ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: #6fcf97;
+  }
+
+  /* Footer */
+  .footer {
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: #aaa;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <span class="tag">Google Ads Case Study</span>
+
+  <h1>Reducing Cost Per Lead by 37% for a Toronto Electrical Contractor</h1>
+
+  <div class="meta">
+    <span><strong>Industry:</strong> Electrical Renovation</span>
+    <span><strong>Market:</strong> Toronto, Canada</span>
+    <span><strong>Platform:</strong> Google Ads (Search)</span>
+    <span><strong>Duration:</strong> Nov 2025 – Feb 2026</span>
+    <span><strong>Currency:</strong> SGD (Singapore Dollar)</span>
+  </div>
+
+  <!-- Background -->
+  <h2>Background</h2>
+  <p>The client is an electrical renovation contractor based in Toronto. They had been running Google Ads but were not getting enough leads for what they were spending. The account had no clear structure — too many irrelevant clicks, no negative keyword list, and a landing page that wasn't converting well.</p>
+  <p>I took over management in November 2025 and ran the account for four months.</p>
+
+  <!-- Phase 1 -->
+  <h2>Phase 1 — Nov & Dec 2025</h2>
+  <p>The first two months were about understanding the account and gathering real data before making changes.</p>
+
+  <h3>Results</h3>
+  <div class="kpi-grid">
+    <div class="kpi">
+      <div class="label">Clicks</div>
+      <div class="value">1,086</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Conversions</div>
+      <div class="value">55</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Total Spend</div>
+      <div class="value">SGD 3,420</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Cost / Lead</div>
+      <div class="value">SGD 62.20</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Conv. Rate</div>
+      <div class="value">5.06%</div>
+    </div>
+  </div>
+
+  <div class="screenshot-note">📸 Screenshot 1 — Nov 1 to Dec 31, 2025 (insert here)</div>
+
+  <h3>What was wrong</h3>
+  <ul class="dots">
+    <li>Keywords were too broad — pulling in unrelated searches</li>
+    <li>No negative keyword list — budget was leaking on irrelevant clicks</li>
+    <li>Bidding strategy was not optimized for conversions yet</li>
+    <li>Landing page had no clear contact form or phone number visible at the top</li>
+    <li>Conversion rate of 5.06% was low for a local service campaign in this niche</li>
+  </ul>
+
+  <!-- Phase 2 -->
+  <h2>Phase 2 — Jan & Feb 2026</h2>
+  <p>After analyzing two months of search term data, I made targeted changes to fix the issues identified in Phase 1.</p>
+
+  <h3>What I changed</h3>
+  <ul class="dots">
+    <li>Switched from broad match to phrase and exact match keywords</li>
+    <li>Built a negative keyword list — removed searches like "DIY electrical," "free quote," "training," and "jobs"</li>
+    <li>Moved bidding toward a conversion-focused strategy once enough data existed</li>
+    <li>Recommended landing page edits — moved the phone number and form above the fold</li>
+    <li>Cut campaigns that were spending without converting</li>
+  </ul>
+
+  <h3>Results</h3>
+  <div class="kpi-grid">
+    <div class="kpi">
+      <div class="label">Clicks</div>
+      <div class="value">675</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Conversions</div>
+      <div class="value">66.5</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Total Spend</div>
+      <div class="value">SGD 2,584</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Cost / Lead</div>
+      <div class="value">SGD 38.87</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Conv. Rate</div>
+      <div class="value">9.85%</div>
+    </div>
+  </div>
+
+  <div class="screenshot-note">📸 Screenshot 2 — Jan 1 to Feb 28, 2026 (insert here)</div>
+
+  <!-- Before vs After -->
+  <h2>Before vs. After</h2>
+
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th>Metric</th>
+        <th>Nov–Dec 2025</th>
+        <th>Jan–Feb 2026</th>
+        <th>Change</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Clicks</td>
+        <td class="before">1,086</td>
+        <td class="after">675</td>
+        <td><span class="change-good">−38%</span></td>
+      </tr>
+      <tr>
+        <td>Conversions</td>
+        <td class="before">55</td>
+        <td class="after">66.5</td>
+        <td><span class="change-good">+21%</span></td>
+      </tr>
+      <tr>
+        <td>Total Spend (SGD)</td>
+        <td class="before">3,420.84</td>
+        <td class="after">2,584.88</td>
+        <td><span class="change-good">−24%</span></td>
+      </tr>
+      <tr>
+        <td>Cost Per Lead (SGD)</td>
+        <td class="before">62.20</td>
+        <td class="after">38.87</td>
+        <td><span class="change-good">−37%</span></td>
+      </tr>
+      <tr>
+        <td>Conversion Rate</td>
+        <td class="before">5.06%</td>
+        <td class="after">9.85%</td>
+        <td><span class="change-good">+95%</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="screenshot-note">📸 Screenshot 3 — Full 4-month view: Nov 2025 to Feb 2026 (insert here)</div>
+
+  <!-- Mistakes & Fixes -->
+  <h2>Mistakes I Made & What I Learned</h2>
+
+  <div class="two-col">
+    <div class="card red">
+      <div class="card-title">❌ My Mistakes (Phase 1)</div>
+      <ul>
+        <li>Waited too long before adding negative keywords</li>
+        <li>Kept broad match keywords running for too long</li>
+        <li>Flagged the landing page issue late — should have been done before launch</li>
+        <li>Did not review search term reports weekly in the first month</li>
+      </ul>
+    </div>
+    <div class="card green">
+      <div class="card-title">✅ What I'd Do Differently</div>
+      <ul>
+        <li>Build a negative keyword list on day one based on the niche</li>
+        <li>Start with phrase and exact match, not broad</li>
+        <li>Run a landing page audit before the campaign goes live</li>
+        <li>Review search terms every week, not bi-weekly</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Takeaways -->
+  <div class="takeaway">
+    <h2>Key Takeaways</h2>
+    <ul>
+      <li>Fewer clicks can mean better results — quality of traffic matters more than volume</li>
+      <li>Negative keywords had the biggest single impact on cost per lead</li>
+      <li>The conversion rate nearly doubled — not from more budget, but from smarter targeting</li>
+      <li>Phase 1 data was not wasted — it told us exactly where the money was leaking</li>
+      <li>For local service campaigns, match type control is non-negotiable from the start</li>
+    </ul>
+  </div>
+
+  <div class="footer">
+    Google Ads Case Study &nbsp;·&nbsp; Toronto, Canada &nbsp;·&nbsp; Nov 2025 – Feb 2026
+  </div>
+
+</div>
+</body>
+</html>
